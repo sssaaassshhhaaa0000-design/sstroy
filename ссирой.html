@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>С-СТРОЙ — Вологодская строительная компания | Каркасные дома и дома из газобетона</title>
+<meta name="description" content="Строим каркасные дома и дома из газобетона в Вологде за 3 месяца. Цена зафиксирована в договоре. Семейная ипотека 6%.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23F26018'/%3E%3Cpath d='M14 36 L32 17 L50 36 M20 33 V48 M44 33 V48 M27 48 V39 H37 V48' stroke='%23fff' stroke-width='4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        brand: '#F26018', branddark: '#C94A0C',
+        ink: '#1B1512', coal: '#26201B',
+        paper: '#FAF6F0', line: '#E9DFD4', muted: '#77695D'
+      },
+      fontFamily: {
+        disp: ['Unbounded','system-ui','sans-serif'],
+        sans: ['Manrope','system-ui','sans-serif']
+      },
+      boxShadow: {
+        hard: '8px 8px 0 0 #1B1512',
+        hardsm: '4px 4px 0 0 #1B1512',
+        hardor: '6px 6px 0 0 #F26018'
+      }
+    }
+  }
+}
+</script>
+<style>
+  html{scroll-behavior:smooth}
+  body{font-family:Manrope,system-ui,sans-serif}
+  ::selection{background:#F26018;color:#fff}
+  .grid-bg{background-image:linear-gradient(rgba(27,21,18,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(27,21,18,.05) 1px,transparent 1px);background-size:32px 32px}
+  .grid-bg-dark{background-image:linear-gradient(rgba(250,246,240,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(250,246,240,.06) 1px,transparent 1px);background-size:32px 32px}
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.on{opacity:1;transform:none}
+  .marquee{overflow:hidden}
+  .marquee-track{display:flex;width:max-content;animation:mq 26s linear infinite}
+  @keyframes mq{to{transform:translateX(-50%)}}
+  input[type=range]{accent-color:#F26018}
+  .btn-press{transition:transform .15s ease,box-shadow .15s ease}
+  .btn-press:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 0 #1B1512}
+  .btn-press:active{transform:translate(0,0);box-shadow:2px 2px 0 0 #1B1512}
+  .card-hover{transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+  .card-hover:hover{transform:translateY(-6px);box-shadow:8px 8px 0 0 #F26018;border-color:#1B1512}
+  .tab-btn[aria-selected="true"]{background:#F26018;color:#fff;border-color:#1B1512}
+  .modal-open{overflow:hidden}
+  .plan-svg text{font-family:Manrope,system-ui,sans-serif}
+  details.step summary::-webkit-details-marker{display:none}
+  #toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,16px);opacity:0;pointer-events:none;transition:all .3s ease;z-index:70}
+  #toast.show{opacity:1;transform:translate(-50%,0)}
+  .lb-photo{cursor:zoom-in}
+</style>
+</head>
+<body class="bg-paper text-ink antialiased">
+
+<!-- ============ ШАПКА ============ -->
+<header class="fixed top-0 inset-x-0 z-40 bg-paper/95 backdrop-blur border-b-2 border-ink">
+  <div class="max-w-7xl mx-auto px-4 h-16 md:h-20 flex items-center justify-between gap-3 md:gap-4">
+    <a href="#top" class="flex items-center gap-3 shrink-0">
+      <span class="w-10 h-10 md:w-12 md:h-12 bg-brand rounded-md border-2 border-ink flex items-center justify-center shadow-hardsm">
+        <svg viewBox="0 0 64 60" class="w-7 h-7" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 34 L32 8 L58 34"/><path d="M14 30 V54 M50 30 V54"/><path d="M26 54 V40 H38 V54"/></svg>
+      </span>
+      <span class="leading-tight">
+        <span class="block font-disp font-800 font-extrabold text-lg md:text-xl tracking-tight whitespace-nowrap">С-СТРОЙ</span>
+        <span class="hidden sm:block text-[10px] md:text-[11px] font-semibold text-muted uppercase tracking-widest">Вологодская строительная компания</span>
+      </span>
+    </a>
+    <nav class="hidden lg:flex items-center gap-6 text-sm font-bold">
+      <a href="#doma" class="hover:text-branddark">Дома</a>
+      <a href="#why" class="hover:text-branddark">Почему мы</a>
+      <a href="#steps" class="hover:text-branddark">Этапы</a>
+      <a href="#calc" class="hover:text-branddark">Калькулятор</a>
+      <a href="#gallery" class="hover:text-branddark">Фото работ</a>
+      <a href="#reviews" class="hover:text-branddark">Отзывы</a>
+      <a href="#contacts" class="hover:text-branddark">Контакты</a>
+    </nav>
+    <div class="flex items-center gap-3 shrink-0">
+      <a href="tel:+79215323003" class="hidden md:flex items-center gap-2 font-extrabold text-sm hover:text-branddark whitespace-nowrap shrink-0">
+        <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27 1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span class="whitespace-nowrap">+7 921 532-30-03</span>
+      </a>
+      <a href="https://vk.ru/sstroy" target="_blank" rel="noopener" class="btn-press inline-flex items-center gap-2 bg-ink text-paper text-sm font-extrabold px-3 md:px-4 py-2.5 rounded-md border-2 border-ink shadow-hardsm shrink-0">
+        <svg viewBox="0 0 32 32" class="w-5 h-5 shrink-0"><rect width="32" height="32" rx="8" fill="#0077FF"/><text x="16" y="21.5" text-anchor="middle" font-family="Manrope,sans-serif" font-weight="800" font-size="13" fill="#fff">VK</text></svg>
+        <span class="hidden lg:inline whitespace-nowrap">Написать в VK</span>
+      </a>
+      <button id="burger" class="lg:hidden w-10 h-10 border-2 border-ink rounded-md flex flex-col items-center justify-center gap-1.5 shrink-0" aria-label="Меню">
+        <span class="w-5 h-0.5 bg-ink"></span><span class="w-5 h-0.5 bg-ink"></span><span class="w-5 h-0.5 bg-ink"></span>
+      </button>
+    </div>
+  </div>
+  <nav id="mnav" class="hidden lg:hidden border-t-2 border-ink bg-paper px-4 py-4 grid gap-3 text-sm font-bold">
+    <a href="#doma">Дома</a><a href="#why">Почему мы</a><a href="#steps">Этапы</a><a href="#calc">Калькулятор</a><a href="#gallery">Фото работ</a><a href="#reviews">Отзывы</a><a href="#contacts">Контакты</a>
+    <a href="tel:+79215323003" class="text-branddark whitespace-nowrap">+7 921 532-30-03</a>
+  </nav>
+</header>
+
+<!-- ============ HERO ============ -->
+<section id="top" class="grid-bg pt-28 md:pt-36 pb-16 md:pb-24 border-b-2 border-ink">
+  <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+    <div class="lg:col-span-6 reveal on">
+      <p class="inline-flex items-center gap-2 bg-ink text-paper text-xs font-extrabold uppercase tracking-widest px-3 py-1.5 rounded-md mb-6">
+        <span class="w-2 h-2 bg-brand rounded-full"></span> Вологда и область · строим с гарантией 5 лет
+      </p>
+      <h1 class="font-disp font-extrabold text-3xl sm:text-4xl xl:text-5xl leading-[1.12] tracking-tight">
+        Дом для семьи за <span class="text-branddark">3 месяца</span> — по цене квартиры
+      </h1>
+      <p class="mt-6 text-lg text-muted font-medium max-w-xl">
+        Каркасные дома и дома из газобетона под ключ. Цена зафиксирована в договоре и не меняется в процессе строительства. Семейная ипотека 6%.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-4">
+        <a href="#doma" class="btn-press inline-flex items-center gap-2 bg-brand text-white font-extrabold px-6 py-3.5 rounded-md border-2 border-ink shadow-hardsm">
+          Выбрать дом
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#calc" class="btn-press inline-flex items-center gap-2 bg-paper font-extrabold px-6 py-3.5 rounded-md border-2 border-ink shadow-hardsm">
+          Рассчитать смету
+        </a>
+      </div>
+      <dl class="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4">
+        <div class="border-2 border-ink rounded-md bg-white p-3"><dt class="font-disp font-bold text-xl text-branddark">3 мес</dt><dd class="text-xs font-semibold text-muted mt-1">коробка с утеплённой крышей</dd></div>
+        <div class="border-2 border-ink rounded-md bg-white p-3"><dt class="font-disp font-bold text-xl text-branddark">52 000</dt><dd class="text-xs font-semibold text-muted mt-1">₽/м² — дома из газобетона</dd></div>
+        <div class="border-2 border-ink rounded-md bg-white p-3"><dt class="font-disp font-bold text-xl text-branddark">6%</dt><dd class="text-xs font-semibold text-muted mt-1">семейная ипотека, все банки</dd></div>
+        <div class="border-2 border-ink rounded-md bg-white p-3"><dt class="font-disp font-bold text-xl text-branddark">5 лет</dt><dd class="text-xs font-semibold text-muted mt-1">гарантия в договоре</dd></div>
+      </dl>
+    </div>
+    <div class="lg:col-span-6 reveal on relative">
+      <div class="absolute -top-4 -left-4 w-full h-full bg-brand rounded-lg border-2 border-ink"></div>
+      <img data-photo="hero" alt="Построенный дом С-СТРОЙ вечером" class="relative w-full h-[320px] md:h-[460px] object-cover rounded-lg border-2 border-ink shadow-hard" loading="eager">
+      <div class="absolute -bottom-5 left-4 md:left-8 bg-ink text-paper px-4 py-3 rounded-md border-2 border-ink shadow-hardor">
+        <p class="font-disp font-bold text-sm">от 3 490 000 ₽</p>
+        <p class="text-[11px] text-paper/70 font-semibold">каркасный дом 54 м² под ключ</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ МАРКИЗА ============ -->
+<div class="marquee bg-brand border-b-2 border-ink py-3" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="flex shrink-0 items-center gap-8 pr-8 font-disp font-bold text-sm text-white uppercase tracking-wider">
+      <span>Каркасные дома</span><span>•</span><span>Дома из газобетона</span><span>•</span><span>Семейная ипотека 6%</span><span>•</span><span>Фиксированная смета</span><span>•</span><span>Гарантия 5 лет</span><span>•</span><span>Вологда и область</span><span>•</span>
+    </span>
+    <span class="flex shrink-0 items-center gap-8 pr-8 font-disp font-bold text-sm text-white uppercase tracking-wider">
+      <span>Каркасные дома</span><span>•</span><span>Дома из газобетона</span><span>•</span><span>Семейная ипотека 6%</span><span>•</span><span>Фиксированная смета</span><span>•</span><span>Гарантия 5 лет</span><span>•</span><span>Вологда и область</span><span>•</span>
+    </span>
+  </div>
+</div>
+
+<!-- ============ ПОЧЕМУ МЫ ============ -->
+<section id="why" class="py-16 md:py-24">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex items-end justify-between gap-6 mb-10 reveal">
+      <div>
+        <p class="text-xs font-extrabold uppercase tracking-widest text-branddark mb-3">01 / Преимущества</p>
+        <h2 class="font-disp font-extrabold text-2xl md:text-4xl tracking-tight">Почему нас выбирают</h2>
+      </div>
+      <p class="hidden md:block text-muted font-medium max-w-sm text-sm">Мы — вологодская компания полного цикла: свои бригады, своя техника, сопровождение ипотеки.</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div class="card-hover reveal bg-white border-2 border-line rounded-lg p-6">
+        <span class="w-12 h-12 bg-brand/10 border-2 border-ink rounded-md flex items-center justify-center mb-5">
+          <svg class="w-6 h-6 text-branddark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h6"/></svg>
+        </span>
+        <h3 class="font-disp font-bold text-base mb-2">Цена зафиксирована в договоре</h3>
+        <p class="text-sm text-muted font-medium">Смета не меняется в процессе строительства. Сколько посчитали — столько вы платите.</p>
+      </div>
+      <div class="card-hover reveal bg-white border-2 border-line rounded-lg p-6">
+        <span class="w-12 h-12 bg-brand/10 border-2 border-ink rounded-md flex items-center justify-center mb-5">
+          <svg class="w-6 h-6 text-branddark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+        </span>
+        <h3 class="font-disp font-bold text-base mb-2">3 месяца до коробки</h3>
+        <p class="text-sm text-muted font-medium">Коробка дома из газобетона с утеплённой крышей — за 3 месяца. Каркас — ещё быстрее.</p>
+      </div>
+      <div class="card-hover reveal bg-white border-2 border-line rounded-lg p-6">
+        <span class="w-12 h-12 bg-brand/10 border-2 border-ink rounded-md flex items-center justify-center mb-5">
+          <svg class="w-6 h-6 text-branddark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 5L5 19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>
+        </span>
+        <h3 class="font-disp font-bold text-base mb-2">Семейная ипотека 6%</h3>
+        <p class="text-sm text-muted font-medium">С сохранением стоимости и без первоначального взноса. Помогаем с одобрением.</p>
+      </div>
+      <div class="card-hover reveal bg-white border-2 border-line rounded-lg p-6">
+        <span class="w-12 h-12 bg-brand/10 border-2 border-ink rounded-md flex items-center justify-center mb-5">
+          <svg class="w-6 h-6 text-branddark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+        </span>
+        <h3 class="font-disp font-bold text-base mb-2">Гарантия 5 лет</h3>
+        <p class="text-sm text-muted font-medium">Расширенная гарантия на силовой каркас и фундамент включена в договор.</p>
+      </div>
+      <div class="card-hover reveal bg-white border-2 border-line rounded-lg p-6">
+        <span class="w-12 h-12 bg-brand/10 border-2 border-ink rounded-md flex items-center justify-center mb-5">
+          <svg class="w-6 h-6 text-branddark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 6a2 2 0 0 1 4 0v.5a7 7 0 0 1 5 6.5v1H5v-1a7 7 0 0 1 5-6.5z"/><path d="M2 16h20v2H2z"/></svg>
+        </span>
+        <h3 class="font-disp font-bold text-base mb-2">Свои бригады и технадзор</h3>
+        <p class="text-sm text-muted font-medium">Без случайных субподрядчиков. Еженедельные фотоотчёты в личные сообщения VK.</p>
+      </div>
+      <div class="card-hover reveal bg-white border-2 border-line rounded-lg p-6">
+        <span class="w-12 h-12 bg-brand/10 border-2 border-ink rounded-md flex items-center justify-center mb-5">
+          <svg class="w-6 h-6 text-branddark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M6 21V9M18 21V9"/><path d="M12 3l9 6H3z"/><path d="M10 21v-4h4v4"/></svg>
+        </span>
+        <h3 class="font-disp font-bold text-base mb-2">Аккредитованы во всех банках</h3>
+        <p class="text-sm text-muted font-medium">Одобрение ипотеки на строительство без подтверждённого дохода — подскажем, как.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ЭТАПЫ ============ -->
+<section id="steps" class="py-16 md:py-24 bg-ink text-paper grid-bg-dark border-y-2 border-ink">
+  <div class="max-w-7xl mx-auto px-4">
+    <p class="text-xs font-extrabold uppercase tracking-widest text-brand mb-3 reveal">02 / Процесс</p>
+    <h2 class="font-disp font-extrabold text-2xl md:text-4xl tracking-tight mb-12 reveal">Этапы работы</h2>
+    <ol class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <li class="reveal border-2 border-paper/15 rounded-lg p-6 bg-coal">
+        <span class="font-disp font-extrabold text-3xl text-brand">01</span>
+        <h3 class="font-disp font-bold mt-3 mb-2">Заявка и консультация</h3>
+        <p class="text-sm text-paper/60 font-medium">Пишете в VK или звоните. Обсуждаем участок, бюджет и технологию. 1 день.</p>
+      </li>
+      <li class="reveal border-2 border-paper/15 rounded-lg p-6 bg-coal">
+        <span class="font-disp font-extrabold text-3xl text-brand">02</span>
+        <h3 class="font-disp font-bold mt-3 mb-2">Встреча на участке</h3>
+        <p class="text-sm text-paper/60 font-medium">Выезжаем, смотрим рельеф и подъезд, делаем замеры. 1–2 дня.</p>
+      </li>
+      <li class="reveal border-2 border-paper/15 rounded-lg p-6 bg-coal">
+        <span class="font-disp font-extrabold text-3xl text-brand">03</span>
+        <h3 class="font-disp font-bold mt-3 mb-2">Договор и смета</h3>
+        <p class="text-sm text-paper/60 font-medium">Фиксируем цену и сроки. Помогаем с ипотекой 6%. Цена не изменится.</p>
+      </li>
+      <li class="reveal border-2 border-paper/15 rounded-lg p-6 bg-coal">
+        <span class="font-disp font-extrabold text-3xl text-brand">04</span>
+        <h3 class="font-disp font-bold mt-3 mb-2">Фундамент</h3>
+        <p class="text-sm text-paper/60 font-medium">Свайно-винтовой, лента или плита — по грунтам вашего участка. 1–2 недели.</p>
+      </li>
+      <li class="reveal border-2 border-paper/15 rounded-lg p-6 bg-coal">
+        <span class="font-disp font-extrabold text-3xl text-brand">05</span>
+        <h3 class="font-disp font-bold mt-3 mb-2">Коробка и крыша</h3>
+        <p class="text-sm text-paper/60 font-medium">Стены, перекрытия, стропильная система, кровля с утеплением. До 3 месяцев.</p>
+      </li>
+      <li class="reveal border-2 border-paper/15 rounded-lg p-6 bg-coal">
+        <span class="font-disp font-extrabold text-3xl text-brand">06</span>
+        <h3 class="font-disp font-bold mt-3 mb-2">Отделка и сдача</h3>
+        <p class="text-sm text-paper/60 font-medium">Предчистовая или под ключ. Принимаете дом с гарантией 5 лет в договоре.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+<!-- ============ FAQ ============ -->
+<section id="faq" class="py-16 md:py-24 bg-paper border-y-2 border-ink">
+  <div class="max-w-4xl mx-auto px-4">
+    <div class="mb-10 reveal">
+      <h2 class="font-disp font-extrabold text-2xl md:text-4xl tracking-tight">6 вопросов, которые нам задают чаще всего</h2>
+      <p class="text-muted font-medium mt-3 max-w-2xl">Без общих фраз. Конкретика с цифрами и фактами — как есть.</p>
+    </div>
+
+    <div class="space-y-3">
+
+      <!-- Вопрос 1: Каркасник холодный -->
+      <details class="step reveal bg-white border-2 border-line rounded-lg p-5 md:p-6 card-hover">
+        <summary class="flex items-center justify-between gap-4 cursor-pointer list-none">
+          <h3 class="font-disp font-bold text-base md:text-lg">«Каркасный дом — это же холодный. В Вологде замёрзнем»</h3>
+          <span class="shrink-0 w-8 h-8 bg-brand/10 rounded-md flex items-center justify-center">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="#F26018" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </summary>
+        <div class="mt-4 text-sm text-muted font-medium space-y-3">
+          <p><b class="text-ink">По факту — теплее газобетона.</b> Утеплитель 200 мм в каркасе эквивалентен кирпичной стене в 1,5 метра. Для Вологды это норма.</p>
+          <p><b class="text-ink">Цифры:</b> в наших домах зимой при −30°C расход газа/электричества на отопление — <b>3 500–5 000 ₽/мес</b> за 90 м². Это в 2 раза меньше, чем в панельной квартире.</p>
+          <p><b class="text-ink">Доказательство:</b> покажем тепловизионный снимок наших домов зимой — без мостиков холода.</p>
+          <a href="#calc" class="inline-flex items-center gap-2 text-branddark font-extrabold text-sm mt-2">Рассчитать дом с зимним пакетом утепления →</a>
+        </div>
+      </details>
+
+      <!-- Вопрос 2: Цена вырастет -->
+      <details class="step reveal bg-white border-2 border-line rounded-lg p-5 md:p-6 card-hover">
+        <summary class="flex items-center justify-between gap-4 cursor-pointer list-none">
+          <h3 class="font-disp font-bold text-base md:text-lg"> «А если цены вырастут в процессе стройки?»</h3>
+          <span class="shrink-0 w-8 h-8 bg-brand/10 rounded-md flex items-center justify-center">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="#F26018" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </summary>
+        <div class="mt-4 text-sm text-muted font-medium space-y-3">
+          <p><b class="text-ink">Не вырастут. Прописано в договоре.</b> Мы фиксируем цену в день подписания — со всеми материалами, работами, доставкой. Даже если лес подорожает через месяц — это наша проблема, не ваша.</p>
+          <p><b class="text-ink">Почему так можем:</b> у нас свои склады, прямые договоры с поставщиками, свои бригады. Не зависим от субподрядчиков.</p>
+          <p><b class="text-ink">Факт:</b> за 12 лет ни у одного клиента смета не изменилась. Готовы показать 180+ договоров.</p>
+          <a href="https://vk.ru/sstroy" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-branddark font-extrabold text-sm mt-2">Попросить шаблон договора в VK →</a>
+        </div>
+      </details>
+
+      <!-- Вопрос 3: Ипотеку не одобрят -->
+      <details class="step reveal bg-white border-2 border-line rounded-lg p-5 md:p-6 card-hover">
+        <summary class="flex items-center justify-between gap-4 cursor-pointer list-none">
+          <h3 class="font-disp font-bold text-base md:text-lg"> «А если мне не одобрят семейную ипотеку? Аванс пропадёт?»</h3>
+          <span class="shrink-0 w-8 h-8 bg-brand/10 rounded-md flex items-center justify-center">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="#F26018" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </summary>
+        <div class="mt-4 text-sm text-muted font-medium space-y-3">
+          <p><b class="text-ink">Не пропадёт. 100% возврат.</b> Если банк откажет — аванс возвращаем полностью в течение 3 рабочих дней. Прописано в договоре.</p>
+          <p><b class="text-ink">Реальность:</b> 94% наших клиентов получают одобрение с первой попытки. Мы аккредитованы во всех банках Вологды и знаем, как подать заявку, чтобы её не отклонили.</p>
+          <p><b class="text-ink">Бонус:</b> помогаем даже без подтверждённого дохода — подскажем легальные варианты.</p>
+          <a href="#contacts" class="inline-flex items-center gap-2 text-branddark font-extrabold text-sm mt-2">Получить бесплатную консультацию по ипотеке →</a>
+        </div>
+      </details>
+
+      <!-- Вопрос 4: Покажите живой дом -->
+      <details class="step reveal bg-white border-2 border-line rounded-lg p-5 md:p-6 card-hover">
+        <summary class="flex items-center justify-between gap-4 cursor-pointer list-none">
+          <h3 class="font-disp font-bold text-base md:text-lg"> «А можно посмотреть построенный вами дом вживую?»</h3>
+          <span class="shrink-0 w-8 h-8 bg-brand/10 rounded-md flex items-center justify-center">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="#F26018" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </summary>
+        <div class="mt-4 text-sm text-muted font-medium space-y-3">
+          <p><b class="text-ink">Да. Поедем вместе.</b> У нас всегда 3–5 домов на разных этапах в Вологде и области. Запишемся, съездим, поговорим с хозяевами. Они расскажут всё честно — без нашего участия.</p>
+          <p><b class="text-ink">Ближайшие объекты:</b> каркасник 88 м² в Шаньково (сдан в мае 2026) и газобетон 104 м² (сдан в феврале 2026) — хозяева согласны показать.</p>
+          <p><b class="text-ink">Главное правило:</b> мы никогда не уговариваем после экскурсии. Решение — только ваше.</p>
+          <a href="https://vk.ru/sstroy" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-branddark font-extrabold text-sm mt-2">Записаться на экскурсию в VK →</a>
+        </div>
+      </details>
+
+      <!-- Вопрос 5: Вы не исчезнете -->
+      <details class="step reveal bg-white border-2 border-line rounded-lg p-5 md:p-6 card-hover">
+        <summary class="flex items-center justify-between gap-4 cursor-pointer list-none">
+          <h3 class="font-disp font-bold text-base md:text-lg"> «Гарантия 5 лет — а вдруг компания исчезнет?»</h3>
+          <span class="shrink-0 w-8 h-8 bg-brand/10 rounded-md flex items-center justify-center">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="#F26018" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </summary>
+        <div class="mt-4 text-sm text-muted font-medium space-y-3">
+          <p><b class="text-ink">Мы с 2013 года. 12 лет в Вологде.</b> Офис на Ветошкина, 17 — не виртуальный. Приезжайте в любое время. Директор София Кузнецова на связи лично.</p>
+          <p><b class="text-ink">Цифры:</b> 2 000+ подписчиков в VK, 180+ сданных домов, рейтинг 4.8. Компании, которые «исчезают», не имеют такой истории.</p>
+          <p><b class="text-ink">Юридически:</b> работаем по договору, все чеки и акты сохраняем. Гарантия — не обещание, а пункт договора с подписью и печатью.</p>
+          <a href="https://vk.ru/sstroy" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-branddark font-extrabold text-sm mt-2">Почитать отзывы за 12 лет →</a>
+        </div>
+      </details>
+
+      <!-- Вопрос 6: Сколько реально стоит под ключ -->
+      <details class="step reveal bg-white border-2 border-line rounded-lg p-5 md:p-6 card-hover">
+        <summary class="flex items-center justify-between gap-4 cursor-pointer list-none">
+          <h3 class="font-disp font-bold text-base md:text-lg"> «От 52 000 ₽/м² — это точно финальная цена? Или будут доплаты?»</h3>
+          <span class="shrink-0 w-8 h-8 bg-brand/10 rounded-md flex items-center justify-center">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="#F26018" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </summary>
+        <div class="mt-4 text-sm text-muted font-medium space-y-3">
+          <p><b class="text-ink">52 000 ₽/м² — это коробка под крышу с утеплением.</b> Что входит: фундамент, стены, перекрытия, стропила, кровля, окна, входная дверь. Можно жить после внутренней отделки.</p>
+          <p><b class="text-ink">Реальный бюджет под ключ:</b> 52 000 + предчистовая (9 000 ₽/м²) + финишная отделка (~12 000 ₽/м²) = <b>≈73 000 ₽/м²</b>. Дом 90 м² под ключ — ≈6,5 млн ₽.</p>
+          <p><b class="text-ink">Честно:</b> мы не прячем цифры. В калькуляторе на сайте реальные цены. Попробуйте посчитать — убедитесь.</p>
+          <a href="#calc" class="inline-flex items-center gap-2 text-branddark font-extrabold text-sm mt-2">Посчитать свой дом в калькуляторе →</a>
+        </div>
+      </details>
+
+    </div>
+
+    <!-- CTA блок после FAQ -->
+    <div class="reveal mt-10 border-2 border-ink rounded-lg bg-ink text-paper p-6 md:p-8 shadow-hard">
+      <div class="flex flex-col md:flex-row items-start md:items-center gap-5">
+        <div class="flex-1">
+          <h3 class="font-disp font-extrabold text-xl md:text-2xl mb-2">Не нашли свой вопрос?</h3>
+          <p class="text-paper/70 font-medium">Задайте его напрямую директору Софии в VK — ответ в течение 15 минут.</p>
+        </div>
+        <a href="https://vk.ru/sstroy" target="_blank" rel="noopener" class="btn-press inline-flex items-center gap-2 bg-brand text-white font-extrabold text-sm px-5 py-3.5 rounded-md border-2 border-ink shadow-[4px_4px_0_0_#fff] shrink-0">
+          <svg viewBox="0 0 32 32" class="w-5 h-5"><rect width="32" height="32" rx="8" fill="#0077FF"/><text x="16" y="21.5" text-anchor="middle" font-family="Manrope,sans-serif" font-weight="800" font-size="13" fill="#fff">VK</text></svg>
+          Задать вопрос
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============ КАТАЛОГ ДОМОВ ============ -->
+<section id="doma" class="py-16 md:py-24">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex items-end justify-between gap-6 mb-4 reveal">
+      <div>
+        <p class="text-xs font-extrabold uppercase tracking-widest text-branddark mb-3">03 / Каталог</p>
+        <h2 class="font-disp font-extrabold text-2xl md:text-4xl tracking-tight">Наши дома</h2>
+      </div>
+      <p class="hidden md:block text-muted font-medium max-w-sm text-sm">8 проектов из нашей группы VK. Нажмите на дом — откроются фото снаружи, внутри, планировка и описание.</p>
+    </div>
+    <p class="text-xs font-bold text-muted mb-8 reveal">Цены актуальны, комплектация уточняется в VK — как в наших товарах в группе.</p>
+    <div id="houseGrid" class="grid sm:grid-cols-2 xl:grid-cols-4 gap-5"></div>
+  </div>
+</section>
+
+<!-- ============ КАЛЬКУЛЯТОР ============ -->
+<section id="calc" class="py-16 md:py-24 bg-ink text-paper grid-bg-dark border-y-2 border-ink">
+  <div class="max-w-7xl mx-auto px-4">
+    <p class="text-xs font-extrabold uppercase tracking-widest text-brand mb-3 reveal">04 / Смета</p>
+    <h2 class="font-disp font-extrabold text-2xl md:text-4xl tracking-tight mb-3 reveal">Калькулятор стоимости</h2>
+    <p class="text-paper/60 font-medium max-w-2xl mb-10 reveal">Предварительный расчёт по реальным ценам компании: каркас от 55 000 ₽/м², газобетон от 52 000 ₽/м². Точную смету составим после встречи на участке.</p>
+    <div class="grid lg:grid-cols-5 gap-6">
+      <div class="lg:col-span-3 bg-coal border-2 border-paper/15 rounded-lg p-6 md:p-8 space-y-7 reveal">
+        <div>
+          <p class="font-disp font-bold text-sm mb-3">Технология</p>
+          <div class="grid sm:grid-cols-2 gap-3">
+            <label class="flex items-center gap-3 border-2 border-paper/20 rounded-md px-4 py-3 cursor-pointer has-[:checked]:border-brand has-[:checked]:bg-brand/10">
+              <input type="radio" name="cTech" value="55000" checked class="accent-[#F26018]"> <span class="font-bold text-sm">Каркасный дом</span>
+            </label>
+            <label class="flex items-center gap-3 border-2 border-paper/20 rounded-md px-4 py-3 cursor-pointer has-[:checked]:border-brand has-[:checked]:bg-brand/10">
+              <input type="radio" name="cTech" value="52000" class="accent-[#F26018]"> <span class="font-bold text-sm">Из газобетона</span>
+            </label>
+          </div>
+        </div>
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <p class="font-disp font-bold text-sm">Площадь дома</p>
+            <p class="font-disp font-extrabold text-brand text-lg"><span id="areaVal">90</span> м²</p>
+          </div>
+          <input id="cArea" type="range" min="40" max="200" step="2" value="90" class="w-full">
+          <div class="flex justify-between text-[11px] font-bold text-paper/40 mt-1"><span>40 м²</span><span>200 м²</span></div>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div>
+            <p class="font-disp font-bold text-sm mb-3">Этажность</p>
+            <select id="cFloors" class="w-full bg-ink border-2 border-paper/20 rounded-md px-3 py-2.5 font-bold text-sm focus:border-brand outline-none">
+              <option value="1">1 этаж</option>
+              <option value="1.18">Мансарда / 1,5 этажа</option>
+              <option value="1.35">2 этажа</option>
+            </select>
+          </div>
+          <div>
+            <p class="font-disp font-bold text-sm mb-3">Фундамент</p>
+            <div class="space-y-2 text-sm font-bold">
+              <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="cFound" value="2500" checked class="accent-[#F26018]"> Свайно-винтовой</label>
+              <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="cFound" value="4200" class="accent-[#F26018]"> Ленточный</label>
+              <label class="flex items-center gap-2 cursor-pointer"><input type="radio" name="cFound" value="5600" class="accent-[#F26018]"> Монолитная плита</label>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p class="font-disp font-bold text-sm mb-3">Комплектация</p>
+          <div class="grid sm:grid-cols-3 gap-3 text-sm font-bold">
+            <label class="border-2 border-paper/20 rounded-md px-3 py-3 cursor-pointer text-center has-[:checked]:border-brand has-[:checked]:bg-brand/10"><input type="radio" name="cFin" value="0" checked class="sr-only">Коробка</label>
+            <label class="border-2 border-paper/20 rounded-md px-3 py-3 cursor-pointer text-center has-[:checked]:border-brand has-[:checked]:bg-brand/10"><input type="radio" name="cFin" value="9000" class="sr-only">Предчистовая</label>
+            <label class="border-2 border-paper/20 rounded-md px-3 py-3 cursor-pointer text-center has-[:checked]:border-brand has-[:checked]:bg-brand/10"><input type="radio" name="cFin" value="19000" class="sr-only">Под ключ</label>
+          </div>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-3 text-sm font-bold">
+          <label class="flex items-center gap-3 border-2 border-paper/20 rounded-md px-4 py-3 cursor-pointer has-[:checked]:border-brand has-[:checked]:bg-brand/10"><input type="checkbox" id="cTerrace" class="accent-[#F26018] w-4 h-4"> Терраса / веранда</label>
+          <label class="flex items-center gap-3 border-2 border-paper/20 rounded-md px-4 py-3 cursor-pointer has-[:checked]:border-brand has-[:checked]:bg-brand/10"><input type="checkbox" id="cWinter" class="accent-[#F26018] w-4 h-4"> Зимний пакет утепления</label>
+        </div>
+      </div>
+      <div class="lg:col-span-2 reveal">
+        <div class="bg-brand text-white border-2 border-ink rounded-lg shadow-hard p-6 md:p-8 lg:sticky lg:top-28">
+          <p class="font-disp font-extrabold text-lg mb-6">Ваша предварительная смета</p>
+          <dl class="space-y-3 text-sm font-bold border-b-2 border-white/25 pb-5 mb-5">
+            <div class="flex justify-between gap-4"><dt class="text-white/80">Коробка, <span id="outArea">90</span> м²</dt><dd id="outBase">—</dd></div>
+            <div class="flex justify-between gap-4"><dt class="text-white/80">Фундамент</dt><dd id="outFound">—</dd></div>
+            <div class="flex justify-between gap-4"><dt class="text-white/80">Отделка</dt><dd id="outFin">—</dd></div>
+            <div class="flex justify-between gap-4"><dt class="text-white/80">Опции</dt><dd id="outOpt">—</dd></div>
+          </dl>
+          <p class="text-xs font-bold uppercase tracking-widest text-white/80">Итого</p>
+          <p id="outTotal" class="font-disp font-extrabold text-3xl md:text-4xl mt-1 mb-6">—</p>
+
+          <!-- 3 кнопки сохранения лида -->
+          <div class="grid gap-3">
+            <button id="btnVk" class="btn-press w-full inline-flex justify-center items-center gap-2 bg-ink text-paper font-extrabold px-5 py-3.5 rounded-md border-2 border-ink shadow-[4px_4px_0_0_#fff]">
+              <svg viewBox="0 0 32 32" class="w-5 h-5 shrink-0"><rect width="32" height="32" rx="8" fill="#0077FF"/><text x="16" y="21.5" text-anchor="middle" font-family="Manrope,sans-serif" font-weight="800" font-size="13" fill="#fff">VK</text></svg>
+              Поделиться в VK
+            </button>
+            <div class="grid grid-cols-2 gap-3">
+              <button id="btnPdf" class="btn-press inline-flex justify-center items-center gap-2 bg-paper text-ink font-extrabold text-sm px-4 py-3 rounded-md border-2 border-ink shadow-hardsm">
+                <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M8 11l4 4 4-4"/><path d="M5 21h14"/></svg>
+                Скачать PDF
+              </button>
+              <button id="btnCopy" class="btn-press inline-flex justify-center items-center gap-2 bg-paper text-ink font-extrabold text-sm px-4 py-3 rounded-md border-2 border-ink shadow-hardsm">
+                <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                Копировать
+              </button>
+            </div>
+          </div>
+          <p class="text-[11px] text-white/70 font-semibold mt-4">Расчёт предварительный и не является публичной офертой. PDF сохранится с логотипом, QR-кодом и контактами. Точная смета — бесплатно после встречи на участке.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ФОТО РАБОТ ============ -->
+<section id="gallery" class="py-16 md:py-24">
+  <div class="max-w-7xl mx-auto px-4">
+    <p class="text-xs font-extrabold uppercase tracking-widest text-branddark mb-3 reveal">05 / Объекты</p>
+    <h2 class="font-disp font-extrabold text-2xl md:text-4xl tracking-tight mb-10 reveal">Фото работ</h2>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <figure class="reveal group relative border-2 border-ink rounded-lg overflow-hidden shadow-hardsm">
+        <img data-photo="g1" alt="Свайно-винтовой фундамент" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+        <figcaption class="absolute bottom-0 inset-x-0 bg-ink/90 text-paper text-xs font-extrabold px-4 py-3">Фундамент — свайно-винтовое поле, 2–3 дня</figcaption>
+      </figure>
+      <figure class="reveal group relative border-2 border-ink rounded-lg overflow-hidden shadow-hardsm">
+        <img data-photo="g2" alt="Сборка каркаса дома" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+        <figcaption class="absolute bottom-0 inset-x-0 bg-ink/90 text-paper text-xs font-extrabold px-4 py-3">Каркас — камерная доска, крепеж по проекту</figcaption>
+      </figure>
+      <figure class="reveal group relative border-2 border-ink rounded-lg overflow-hidden shadow-hardsm">
+        <img data-photo="g3" alt="Кладка газобетона" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+        <figcaption class="absolute bottom-0 inset-x-0 bg-ink/90 text-paper text-xs font-extrabold px-4 py-3">Кладка газобетона на клей, ровность по уровню</figcaption>
+      </figure>
+      <figure class="reveal group relative border-2 border-ink rounded-lg overflow-hidden shadow-hardsm">
+        <img data-photo="g4" alt="Монтаж стропильной системы" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+        <figcaption class="absolute bottom-0 inset-x-0 bg-ink/90 text-paper text-xs font-extrabold px-4 py-3">Стропильная система и металлочерепица</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ОТЗЫВЫ С ДОКАЗАТЕЛЬСТВАМИ ============ -->
+<section id="reviews" class="py-16 md:py-24 bg-paper grid-bg border-t-2 border-ink">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex items-end justify-between gap-6 mb-10 reveal">
+      <div>
+        <p class="text-xs font-extrabold uppercase tracking-widest text-branddark mb-3">06 / Отзывы</p>
+        <h2 class="font-disp font-extrabold text-2xl md:text-4xl tracking-tight">Что говорят владельцы</h2>
+      </div>
+      <p class="hidden md:block text-muted font-medium max-w-sm text-sm">У каждого отзыва — дата, дом и фото с телефона хозяина. Нажмите на фото, чтобы рассмотреть.</p>
+    </div>
+
+    <!-- ЗАМЕНА ФОТО: чтобы вставить свои снимки из чата — правый клик по фото → «копировать ссылку на изображение» → вставьте в src ниже -->
+    <div class="grid lg:grid-cols-2 gap-5 mb-5">
+      <!-- Отзыв 1: Виктория Щукина, 3 фото одного дома -->
+      <article class="reveal bg-white border-2 border-ink rounded-lg p-6 shadow-hardsm flex flex-col">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-11 h-11 rounded-md bg-brand text-white font-disp font-bold flex items-center justify-center border-2 border-ink">В</span>
+          <div>
+            <p class="font-extrabold text-sm flex items-center gap-1.5">Виктория Щукина
+              <svg class="w-4 h-4 text-[#0077FF]" viewBox="0 0 24 24" fill="currentColor" aria-label="Подтверждённый отзыв"><path d="M12 2l2.4 2.4 3.4-.5 1.2 3.2 3.2 1.2-.5 3.4L24 14l-2.3 2.4.5 3.4-3.2 1.2-1.2 3.2-3.4-.5L12 26l-2.4-2.3-3.4.5-1.2-3.2-3.2-1.2.5-3.4L0 14l2.3-2.3-.5-3.4 3.2-1.2 1.2-3.2 3.4.5z" transform="scale(0.92) translate(1,0)"/><path d="M10.6 14.6l-2.2-2.2-1.4 1.4 3.6 3.6 6.4-6.4-1.4-1.4z" fill="#fff"/></svg>
+            </p>
+            <p class="text-xs text-muted font-semibold">27 мая 2026, 13:13 · отзыв из VK · дом сдан в мае 2026</p>
+          </div>
+          <span class="ml-auto flex gap-0.5 text-brand" aria-label="5 из 5">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          </span>
+        </div>
+        <p class="text-sm text-muted font-medium mb-5">«Хочу выразить Вам искреннюю благодарность за сотрудничество с вашей строительной компанией. Хочется отметить Ваш высокий уровень ответственности и слаженность в работе. Все этапы строительства были выполнены точно в срок и с большим вниманием к деталям. Мы особенно ценим индивидуальный подход и заботу о клиентах, которые мы ощутили на каждом шагу. С радостью рекомендую Вашу компанию всем!»</p>
+        <div class="grid grid-cols-3 gap-2 mt-auto">
+          <img data-lb src="https://image.qwenlm.ai/public_source/85979cbc-eb40-4851-af16-810962cdfcc7/078c1b77f-ea25-4a5e-b8f0-7a9afe4dd10f5921.png" alt="Дом Виктории — фасад крупным планом" class="lb-photo w-full h-24 md:h-28 object-cover rounded-md border-2 border-ink" loading="lazy">
+          <img data-lb src="https://image.qwenlm.ai/public_source/85979cbc-eb40-4851-af16-810962cdfcc7/11a2edd36-f0f6-4af0-9136-809a81eb3fe73651.png" alt="Дом Виктории — общий вид" class="lb-photo w-full h-24 md:h-28 object-cover rounded-md border-2 border-ink" loading="lazy">
+          <img data-lb src="https://image.qwenlm.ai/public_source/85979cbc-eb40-4851-af16-810962cdfcc7/078c1b77f-ea25-4a5e-b8f0-7a9afe4dd10f8045.png" alt="Дом Виктории — кухня в монтаже" class="lb-photo w-full h-24 md:h-28 object-cover rounded-md border-2 border-ink" loading="lazy">
+        </div>
+        <div class="flex flex-wrap gap-2 mt-4">
+          <span class="text-[10px] font-extrabold uppercase tracking-widest bg-paper border-2 border-ink rounded-md px-2 py-1">Каркасный дом</span>
+          <span class="text-[10px] font-extrabold uppercase tracking-widest bg-paper border-2 border-ink rounded-md px-2 py-1">Сдан в мае 2026</span>
+          <span class="text-[10px] font-extrabold uppercase tracking-widest bg-brand/10 border-2 border-ink rounded-md px-2 py-1">Фото с телефона хозяйки</span>
+        </div>
+      </article>
+
+      <!-- Отзыв 2: зимняя сдача, 2 фото -->
+      <article class="reveal bg-white border-2 border-ink rounded-lg p-6 shadow-hardsm flex flex-col">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-11 h-11 rounded-md bg-ink text-paper font-disp font-bold flex items-center justify-center border-2 border-ink">С</span>
+          <div>
+            <p class="font-extrabold text-sm flex items-center gap-1.5">Сергей и Анна Ковалёвы
+              <svg class="w-4 h-4 text-[#0077FF]" viewBox="0 0 24 24" fill="currentColor" aria-label="Подтверждённый отзыв"><path d="M12 2l2.4 2.4 3.4-.5 1.2 3.2 3.2 1.2-.5 3.4L24 14l-2.3 2.4.5 3.4-3.2 1.2-1.2 3.2-3.4-.5L12 26l-2.4-2.3-3.4.5-1.2-3.2-3.2-1.2.5-3.4L0 14l2.3-2.3-.5-3.4 3.2-1.2 1.2-3.2 3.4.5z" transform="scale(0.92) translate(1,0)"/><path d="M10.6 14.6l-2.2-2.2-1.4 1.4 3.6 3.6 6.4-6.4-1.4-1.4z" fill="#fff"/></svg>
+            </p>
+            <p class="text-xs text-muted font-semibold">14 февраля 2026, 18:42 · отзыв из VK · дом сдан в феврале 2026</p>
+          </div>
+          <span class="ml-auto flex gap-0.5 text-brand" aria-label="5 из 5">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          </span>
+        </div>
+        <p class="text-sm text-muted font-medium mb-5">«Боялись начинать зимой, а зря — это оказалось правильное решение: фундамент сделали ещё осенью, а дом сдали в феврале. Тёплый контур закрыли сразу, бригада работала даже в −15. Чёрные окна и крыльцо — один в один как на визуализации. Смета не изменилась ни на рубль, как и было в договоре.»</p>
+        <div class="grid grid-cols-2 gap-2 mt-auto">
+          <img data-lb src="https://image.qwenlm.ai/public_source/85979cbc-eb40-4851-af16-810962cdfcc7/578c1b77f-ea25-4a5e-b8f0-7a9afe4dd10f2581.png" alt="Дом Ковалёвых — крыльцо зимой" class="lb-photo w-full h-24 md:h-28 object-cover rounded-md border-2 border-ink" loading="lazy">
+          <img data-lb src="https://image.qwenlm.ai/public_source/85979cbc-eb40-4851-af16-810962cdfcc7/378c1b77f-ea25-4a5e-b8f0-7a9afe4dd10f4422.png" alt="Дом Ковалёвых — вечерний ракурс" class="lb-photo w-full h-24 md:h-28 object-cover rounded-md border-2 border-ink" loading="lazy">
+        </div>
+        <div class="flex flex-wrap gap-2 mt-4">
+          <span class="text-[10px] font-extrabold uppercase tracking-widest bg-paper border-2 border-ink rounded-md px-2 py-1">Каркас · чёрные окна</span>
+          <span class="text-[10px] font-extrabold uppercase tracking-widest bg-paper border-2 border-ink rounded-md px-2 py-1">Сдан в феврале 2026</span>
+          <span class="text-[10px] font-extrabold uppercase tracking-widest bg-brand/10 border-2 border-ink rounded-md px-2 py-1">Фото с телефона хозяев</span>
+        </div>
+      </article>
+    </div>
+
+    <!-- Короткие отзывы с датами -->
+    <div class="grid md:grid-cols-2 gap-5 mb-8">
+      <article class="reveal bg-white border-2 border-ink rounded-lg p-6 shadow-hardsm">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-11 h-11 rounded-md bg-brand text-white font-disp font-bold flex items-center justify-center border-2 border-ink">А</span>
+          <div><p class="font-extrabold text-sm">Алексей и Марина В.</p><p class="text-xs text-muted font-semibold">12 марта 2026 · дом «Старт», 54 м² · отзыв из VK</p></div>
+          <span class="ml-auto flex gap-0.5 text-brand" aria-label="5 из 5">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          </span>
+        </div>
+        <p class="text-sm text-muted font-medium">«Думали, что дом — это годы стройки. Коробку собрали за два месяца, с отделкой уложились в четыре. Смета не изменилась ни на рубль — как и обещали в договоре.»</p>
+      </article>
+      <article class="reveal bg-white border-2 border-ink rounded-lg p-6 shadow-hardsm">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-11 h-11 rounded-md bg-ink text-paper font-disp font-bold flex items-center justify-center border-2 border-ink">Д</span>
+          <div><p class="font-extrabold text-sm">Дмитрий К.</p><p class="text-xs text-muted font-semibold">3 июня 2026 · барнхаус 70 м² · отзыв из VK</p></div>
+          <span class="ml-auto flex gap-0.5 text-brand" aria-label="5 из 5">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          </span>
+        </div>
+        <p class="text-sm text-muted font-medium">«Хотел барнхаус, многие подрядчики отнекивались. Здесь посчитали, построили и каждую неделю присылали фотоотчёт. Крыша — день в день по графику.»</p>
+      </article>
+    </div>
+
+    <div class="reveal border-2 border-ink rounded-lg bg-white p-6 flex flex-col md:flex-row items-center gap-5 shadow-hardsm">
+      <svg class="w-10 h-10 shrink-0 text-branddark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+      <p class="text-sm font-bold text-muted flex-1">Видеообзоры сданных домов и живые отзывы владельцев мы каждую неделю публикуем в группе — там их больше сотни, с датами и объектами.</p>
+      <a href="https://vk.ru/sstroy" target="_blank" rel="noopener" class="btn-press inline-flex items-center gap-2 bg-ink text-paper font-extrabold text-sm px-5 py-3 rounded-md border-2 border-ink shadow-hardsm shrink-0">
+        Смотреть отзывы в VK
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ КОНТАКТЫ ============ -->
+<section id="contacts" class="py-16 md:py-24 bg-ink text-paper grid-bg-dark">
+  <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-10 items-start">
+    <div class="reveal">
+      <p class="text-xs font-extrabold uppercase tracking-widest text-brand mb-3">07 / Контакты</p>
+      <h2 class="font-disp font-extrabold text-2xl md:text-4xl tracking-tight mb-8">Приезжайте в офис или пишите в VK</h2>
+      <ul class="space-y-5">
+        <li class="flex items-start gap-4">
+          <span class="w-11 h-11 shrink-0 bg-coal border-2 border-paper/20 rounded-md flex items-center justify-center"><svg class="w-5 h-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <div><p class="font-extrabold">г. Вологда, ул. Ветошкина, дом 17</p><p class="text-sm text-paper/60 font-semibold">офис компании, без записи</p></div>
+        </li>
+        <li class="flex items-start gap-4">
+          <span class="w-11 h-11 shrink-0 bg-coal border-2 border-paper/20 rounded-md flex items-center justify-center"><svg class="w-5 h-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27 1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+          <div>
+            <a href="tel:+79215323003" class="font-extrabold hover:text-brand block whitespace-nowrap">+7 (921) 532-30-03</a>
+            <p class="text-sm text-paper/60 font-semibold">София Кузнецова — директор</p>
+            <a href="tel:+79535151323" class="font-extrabold hover:text-brand block mt-2 whitespace-nowrap">+7 (953) 515-13-23</a>
+            <p class="text-sm text-paper/60 font-semibold">Марина Конева — заместитель директора</p>
+          </div>
+        </li>
+        <li class="flex items-start gap-4">
+          <span class="w-11 h-11 shrink-0 bg-coal border-2 border-paper/20 rounded-md flex items-center justify-center"><svg class="w-5 h-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span>
+          <div><p class="font-extrabold">Ежедневно с 9:00 до 19:00</p><p class="text-sm text-paper/60 font-semibold">отвечаем в VK в течение 15 минут</p></div>
+        </li>
+      </ul>
+    </div>
+    <div class="reveal">
+      <div class="bg-brand text-white border-2 border-ink rounded-lg shadow-hard p-8 md:p-10">
+        <svg viewBox="0 0 64 60" class="w-14 h-14 mb-6" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 34 L32 8 L58 34"/><path d="M14 30 V54 M50 30 V54"/><path d="M26 54 V40 H38 V54"/></svg>
+        <h3 class="font-disp font-extrabold text-xl md:text-2xl mb-3">Мы на связи в VK</h3>
+        <p class="text-white/85 font-medium mb-8">Никаких форм «оставьте номер» — напишите нам напрямую в группу VK: покажем планировки, комплектацию и живые объекты, посчитаем смету.</p>
+        <a href="https://vk.ru/sstroy" target="_blank" rel="noopener" class="btn-press w-full inline-flex justify-center items-center gap-3 bg-ink text-paper font-disp font-bold px-6 py-4 rounded-md border-2 border-ink shadow-[5px_5px_0_0_#fff]">
+          <svg viewBox="0 0 32 32" class="w-6 h-6"><rect width="32" height="32" rx="8" fill="#0077FF"/><text x="16" y="21.5" text-anchor="middle" font-family="Manrope,sans-serif" font-weight="800" font-size="13" fill="#fff">VK</text></svg>
+          vk.ru/sstroy
+        </a>
+        <p class="text-[12px] text-white/75 font-semibold mt-4">2 000+ подписчиков · товары с ценами · живые обзоры домов</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ФУТЕР ============ -->
+<footer class="bg-ink text-paper/60 border-t-2 border-paper/10 py-8">
+  <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-semibold">
+    <p class="flex items-center gap-2"><svg viewBox="0 0 64 60" class="w-5 h-5" fill="none" stroke="#F26018" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 34 L32 8 L58 34"/><path d="M14 30 V54 M50 30 V54"/><path d="M26 54 V40 H38 V54"/></svg> С-СТРОЙ — вологодская строительная компания</p>
+    <p>© 2026 · Не является публичной офертой</p>
+    <a href="https://vk.ru/sstroy" target="_blank" rel="noopener" class="hover:text-brand">vk.ru/sstroy</a>
+  </div>
+</footer>
+
+<!-- ============ МОДАЛКА ДОМА ============ -->
+<div id="modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-ink/80" role="dialog" aria-modal="true">
+  <div class="bg-paper w-full max-w-5xl max-h-[92vh] overflow-y-auto rounded-lg border-2 border-ink shadow-hard relative">
+    <button id="modalClose" class="absolute top-3 right-3 z-10 w-10 h-10 bg-ink text-paper rounded-md border-2 border-ink flex items-center justify-center hover:bg-branddark" aria-label="Закрыть">
+      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="grid md:grid-cols-5">
+      <div class="md:col-span-3 p-5 md:p-6 border-b-2 md:border-b-0 md:border-r-2 border-line">
+        <div class="flex gap-2 mb-4" role="tablist">
+          <button class="tab-btn btn-press border-2 border-ink rounded-md px-4 py-2 text-xs font-extrabold bg-paper" data-tab="ext" aria-selected="true">Снаружи</button>
+          <button class="tab-btn btn-press border-2 border-ink rounded-md px-4 py-2 text-xs font-extrabold bg-paper" data-tab="int" aria-selected="false">Внутри</button>
+          <button class="tab-btn btn-press border-2 border-ink rounded-md px-4 py-2 text-xs font-extrabold bg-paper" data-tab="plan" aria-selected="false">Планировка</button>
+        </div>
+        <div id="viewExt" class="tab-view"><img id="imgExt" alt="" class="w-full h-72 md:h-96 object-cover rounded-md border-2 border-ink"></div>
+        <div id="viewInt" class="tab-view hidden"><img id="imgInt" alt="" class="w-full h-72 md:h-96 object-cover rounded-md border-2 border-ink"></div>
+        <div id="viewPlan" class="tab-view hidden bg-white rounded-md border-2 border-ink p-4 h-72 md:h-96 flex items-center justify-center"><div id="planBox" class="w-full h-full"></div></div>
+      </div>
+      <div class="md:col-span-2 p-5 md:p-6">
+        <span id="mTech" class="inline-block text-[11px] font-extrabold uppercase tracking-widest bg-brand text-white border-2 border-ink rounded-md px-2.5 py-1 mb-3">Каркас</span>
+        <h3 id="mName" class="font-disp font-extrabold text-xl mb-3">—</h3>
+        <p id="mDesc" class="text-sm text-muted font-medium mb-5">—</p>
+        <dl id="mSpecs" class="text-sm font-bold space-y-2 border-t-2 border-line pt-4 mb-5"></dl>
+        <p class="text-xs font-extrabold uppercase tracking-widest text-muted">Цена</p>
+        <p id="mPrice" class="font-disp font-extrabold text-2xl text-branddark mb-5">—</p>
+        <a href="https://vk.ru/sstroy" target="_blank" rel="noopener" class="btn-press w-full inline-flex justify-center items-center gap-2 bg-brand text-white font-extrabold text-sm px-5 py-3 rounded-md border-2 border-ink shadow-hardsm mb-3">Обсудить дом в VK</a>
+        <a href="tel:+79215323003" class="w-full inline-flex justify-center items-center gap-2 bg-paper font-extrabold text-sm px-5 py-3 rounded-md border-2 border-ink whitespace-nowrap">+7 921 532-30-03</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ЛАЙТБОКС ФОТО ОТЗЫВОВ ============ -->
+<div id="lightbox" class="fixed inset-0 z-[60] hidden items-center justify-center p-4 bg-ink/90 cursor-zoom-out" role="dialog" aria-modal="true">
+  <img id="lbImg" alt="Фото объекта" class="max-w-full max-h-[90vh] rounded-lg border-2 border-paper shadow-hard">
+</div>
+
+<!-- ============ ТОСТ ============ -->
+<div id="toast" class="bg-ink text-paper text-sm font-extrabold px-5 py-3 rounded-md border-2 border-ink shadow-hardor" role="status"></div>
+
+<script>
+/* ============================================================
+   ФОТО КАТАЛОГА: реальные снимки, прямые ссылки.
+============================================================ */
+const PHOTOS = {
+  hero:{n:16,url:'https://image.qwenlm.ai/public_source/85979cbc-eb40-4851-af16-810962cdfcc7/41a2edd36-f0f6-4af0-9136-809a81eb3fe71481.png'},
+  h1e:{n:1,url:'https://image.qwenlm.ai/public_source/85979cbc-eb40-4851-af16-810962cdfcc7/11a2edd36-f0f6-4af0-9136-809a81eb3fe73651.png'},  h1i:{n:8,url:'https://image.qwenlm.ai/public_source/85979cbc-eb40-4851-af16-810962cdfcc7/51a2edd36-f0f6-4af0-9136-809a81eb3fe72207.png'},
+  h2e:{n:4,url:'https://image.qwenlm.ai/public_source/85979cbc-eb40-4851-af16-810962cdfcc7/11a2edd36-f0f6-4af0-9136-809a81eb3fe72371.png'},  h2i:{n:14,url:'https://image.qwenlm.ai/public_source/85979cbc-eb40-4851-af16-810962cdfcc7/61a2edd36-f0f6-4af0-9136-809a81eb3fe79957.png'},
+  h3e:{n:7,url:'https://image.qwenlm.ai/public_source/85979cbc-eb40-4851-af16-810962cdfcc7/01a2edd36-f0f6-4af0-9136-809a81eb3fe71495.png'},  h3i:{n:18,url:'https://image.qwenlm.ai/public_source/85979cbc-eb40-4851-af16-810962cdfcc7/41a2edd36-f0f6-4af0-9136-809a81eb3fe77039.png'},
+  h4e:{n:2,url:'https://image.qwenlm.ai/public_source/85979cbc-eb40-4851-af16-810962cdfcc7/21a2edd36-f0f6-4af0-9136-809a81eb3fe71367.png'},  h4i:{n:9,url:'https://image.qwenlm.ai/public_source/85979cbc-eb40-4851-af16-810962cdfcc7/31a2edd36-f0f6-4af0-9136-809a81eb3fe76793.png'},
+  h5e:{n:11,url:'https://image.qwenlm.ai/public_source/85979cbc-eb40-4851-af16-810962cdfcc7/31a2edd36-f0f6-4af0-9136-809a81eb3fe77777.png'}, h5i:{n:15,url:'https://image.qwenlm.ai/public_source/85979cbc-eb40-4851-af16-810962cdfcc7/11a2edd36-f0f6-4af0-9136-809a81eb3fe78690.png'},
+  h6e:{n:5,url:'https://image.qwenlm.ai/public_source/85979cbc-eb40-4851-af16-810962cdfcc7/51a2edd36-f0f6-4af0-9136-809a81eb3fe78856.png'},  h6i:{n:12,url:'https://image.qwenlm.ai/public_source/85979cbc-eb40-4851-af16-810962cdfcc7/21a2edd36-f0f6-4af0-9136-809a81eb3fe79551.png'},
+  h7e:{n:6,url:'https://image.qwenlm.ai/public_source/85979cbc-eb40-4851-af16-810962cdfcc7/01a2edd36-f0f6-4af0-9136-809a81eb3fe73363.png'},  h7i:{n:13,url:'https://image.qwenlm.ai/public_source/85979cbc-eb40-4851-af16-810962cdfcc7/01a2edd36-f0f6-4af0-9136-809a81eb3fe71087.png'},
+  h8e:{n:3,url:'https://image.qwenlm.ai/public_source/85979cbc-eb40-4851-af16-810962cdfcc7/31a2edd36-f0f6-4af0-9136-809a81eb3fe75192.png'},  h8i:{n:10,url:'https://image.qwenlm.ai/public_source/85979cbc-eb40-4851-af16-810962cdfcc7/21a2edd36-f0f6-4af0-9136-809a81eb3fe79807.png'},
+  g1:{n:17,url:'https://image.qwenlm.ai/public_source/85979cbc-eb40-4851-af16-810962cdfcc7/11a2edd36-f0f6-4af0-9136-809a81eb3fe79921.png'},  g2:{n:21,url:'https://image.qwenlm.ai/public_source/85979cbc-eb40-4851-af16-810962cdfcc7/11a2edd36-f0f6-4af0-9136-809a81eb3fe72324.png'},
+  g3:{n:19,url:'https://image.qwenlm.ai/public_source/85979cbc-eb40-4851-af16-810962cdfcc7/41a2edd36-f0f6-4af0-9136-809a81eb3fe71189.png'},  g4:{n:20,url:'https://image.qwenlm.ai/public_source/85979cbc-eb40-4851-af16-810962cdfcc7/01a2edd36-f0f6-4af0-9136-809a81eb3fe79870.png'}
+};
+function placeholder(num){
+  const s = "<svg xmlns='http://www.w3.org/2000/svg' width='800' height='600'><rect width='800' height='600' fill='#F4EEE6'/><g stroke='#E9DFD4' stroke-width='1'>"+
+    Array.from({length:19},(_,i)=>"<path d='M"+(i*42)+" 0V600'/>").join("")+Array.from({length:15},(_,i)=>"<path d='M0 "+(i*42)+"H800'/>").join("")+
+    "</g><path d='M300 300 L400 200 L500 300 M330 285 V380 M470 285 V380 M370 380 V320 H430 V380' stroke='#F26018' stroke-width='10' fill='none' stroke-linecap='round' stroke-linejoin='round'/>"+
+    "<text x='400' y='440' text-anchor='middle' font-family='sans-serif' font-weight='800' font-size='30' fill='#1B1512'>С-СТРОЙ</text>"+
+    "<text x='400' y='472' text-anchor='middle' font-family='sans-serif' font-size='16' fill='#77695D'>фото №"+num+" — вставьте ссылку в PHOTOS</text></svg>";
+  return 'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(s);
+}
+function applyPhotos(){
+  document.querySelectorAll('[data-photo]').forEach(el=>{
+    const p = PHOTOS[el.dataset.photo];
+    if(p) el.src = (p.url && p.url.startsWith('http')) ? p.url : placeholder(p.n);
+  });
+}
+
+/* ================= ДАННЫЕ ДОМОВ ================= */
+const HOUSES = [
+ {id:'h1',name:'Каркасный дом «Старт»',tech:'Каркас',area:'54 м²',dims:'6 × 9 м',floors:'1 этаж',beds:'2 спальни',time:'2,5 месяца',price:'3 490 000 ₽',
+  desc:'Компактный дом для молодой семьи — замена квартире. Тёплый контур, продуманная планировка без коридоров, быстрая сдача.',
+  plan:{W:9,H:6,rooms:[[0,0,5,4,'Кухня-гостиная'],[5,0,4,3,'Спальня'],[5,3,4,3,'Спальня'],[0,4,3,2,'Санузел'],[3,4,2,2,'Прихожая']]}},
+ {id:'h2',name:'Каркасный дом «Барн»',tech:'Каркас',area:'70 м²',dims:'7 × 10 м',floors:'1 этаж',beds:'2 спальни',time:'3 месяца',price:'от 3 850 000 ₽',
+  desc:'Барнхаус с панорамным остеклением и вторым светом. Современная архитектура, высокая гостиная, печь как центр интерьера.',
+  plan:{W:10,H:7,rooms:[[0,0,6,4,'Кухня-гостиная'],[6,0,4,3.5,'Спальня'],[6,3.5,4,3.5,'Спальня'],[0,4,3,3,'Санузел'],[3,4,3,3,'Прихожая']]}},
+ {id:'h3',name:'Дом из газобетона «Комфорт»',tech:'Газобетон',area:'90 м²',dims:'7,5 × 12 м',floors:'1 этаж',beds:'2 спальни + мастер',time:'3 месяца',price:'от 4 680 000 ₽',
+  desc:'Одноэтажный каменный дом с террасой. Каменные углы, штукатурка, планировка «на вырост» для семьи с детьми.',
+  plan:{W:12,H:7.5,rooms:[[0,0,6,4.5,'Кухня-гостиная'],[6,0,6,3.5,'Мастер'],[6,3.5,3,4,'Спальня'],[9,3.5,3,4,'Санузел'],[0,4.5,6,3,'Терраса']]}},
+ {id:'h4',name:'Каркасный дом «Уютная мечта»',tech:'Каркас',area:'88 м²',dims:'8 × 11 м',floors:'Мансарда',beds:'3 спальни',time:'3 месяца',price:'4 805 000 ₽',
+  desc:'Хит группы VK: дом с большой террасой и мансардой. Дерево в отделке фасада, белые ограждения, место для семьи и гостей.',
+  plan:{W:11,H:8,rooms:[[0,0,6,5,'Кухня-гостиная'],[6,0,5,4,'Спальня'],[6,4,5,4,'Спальня'],[0,5,3,3,'Санузел'],[3,5,3,3,'Прихожая']]}},
+ {id:'h5',name:'Каркасный дом «Скандинавия»',tech:'Каркас',area:'96 м²',dims:'8 × 12 м',floors:'1,5 этажа',beds:'3 спальни + кабинет',time:'3,5 месяца',price:'от 5 280 000 ₽',
+  desc:'Серый вертикальный фасад, мансардные окна, кабинет для удалёнки. Энергоэффективный контур и аккуратная посадка на участок.',
+  plan:{W:12,H:8,rooms:[[0,0,7,5,'Кухня-гостиная'],[7,0,5,4,'Мастер'],[7,4,5,4,'Спальня'],[0,5,4,3,'Санузел'],[4,5,3,3,'Прихожая'],[7,5,5,3,'Кабинет']]}},
+ {id:'h6',name:'Дом из газобетона «Семейный»',tech:'Газобетон',area:'104 м²',dims:'8 × 13 м',floors:'1 этаж',beds:'3 спальни',time:'3 месяца',price:'5 564 000 ₽',
+  desc:'Тот самый дом за 3 месяца под семейную ипотеку 6%. Коробка с утеплённой крышей, планировку можно посмотреть вживую.',
+  plan:{W:13,H:8,rooms:[[0,0,6,5,'Кухня-гостиная'],[6,0,4,4,'Спальня'],[10,0,3,4,'Спальня'],[6,4,4,4,'Спальня'],[10,4,3,4,'Санузел'],[0,5,6,3,'Терраса']]}},
+ {id:'h7',name:'Дом из газобетона «Лимит ипотеки»',tech:'Газобетон',area:'118 м²',dims:'7 × 10 м',floors:'2 этажа',beds:'4 спальни',time:'3,5 месяца',price:'от 6 784 000 ₽',
+  desc:'Популярный проект под лимит семейной ипотеки: кухня-гостиная, детские и мастер-спальня. Коробка — 6 784 000 ₽, предчистовая — 8 700 000 ₽.',
+  plan:{W:10,H:6.5,rooms:[[0,0,6,4.5,'Кухня-гостиная'],[6,0,4,4.5,'Спальня'],[0,4.5,6,2,'Холл'],[6,4.5,4,2,'Санузел']]}},
+ {id:'h8',name:'Каркасный дом «Мечта»',tech:'Каркас',area:'132 м²',dims:'9 × 12 м',floors:'2 этажа',beds:'4 спальни',time:'4 месяца',price:'7 975 000 ₽',
+  desc:'Флагман каталога: двухсветная гостиная с панорамными окнами, камин и лестница на второй этаж. Дом для большой семьи.',
+  plan:{W:12,H:6,rooms:[[0,0,7,6,'Кухня-гостиная'],[7,0,5,3,'Спальня'],[7,3,5,3,'Холл']]}}
+];
+
+/* ================= РЕНДЕР КАРТОЧЕК ================= */
+const grid = document.getElementById('houseGrid');
+grid.innerHTML = HOUSES.map((h,i)=>`
+ <article class="card-hover reveal on bg-white border-2 border-line rounded-lg overflow-hidden flex flex-col">
+   <button class="text-left" onclick="openHouse(${i})" aria-label="Открыть ${h.name}">
+     <div class="relative">
+       <img data-photo="${h.id}e" alt="${h.name} — фото снаружи" class="w-full h-48 object-cover" loading="lazy">
+       <span class="absolute top-3 left-3 text-[10px] font-extrabold uppercase tracking-widest ${h.tech==='Каркас'?'bg-brand text-white':'bg-ink text-paper'} border-2 border-ink rounded-md px-2 py-0.5">${h.tech}</span>
+     </div>
+     <div class="p-5">
+       <h3 class="font-disp font-bold text-sm leading-snug mb-2">${h.name}</h3>
+       <p class="text-xs font-bold text-muted mb-3">${h.area} · ${h.dims} · ${h.beds}</p>
+       <div class="flex items-center justify-between">
+         <span class="font-disp font-extrabold text-branddark text-sm">${h.price}</span>
+         <span class="inline-flex items-center gap-1 text-xs font-extrabold">Смотреть
+           <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+         </span>
+       </div>
+     </div>
+   </button>
+ </article>`).join('');
+
+/* ================= ПЛАНИРОВКИ (SVG) ================= */
+function planSVG(p){
+  const s=10;
+  let inner = p.rooms.map(r=>{
+    const [x,y,w,h,name]=r, terr=/Терраса/.test(name);
+    const cx=(x+w/2)*s, cy=(y+h/2)*s, area=Math.round(w*h);
+    return `<rect x="${x*s}" y="${y*s}" width="${w*s}" height="${h*s}" fill="${terr?'#FDE8DC':'#FFFFFF'}" stroke="#1B1512" stroke-width="0.35" ${terr?"stroke-dasharray='1.4 1.2'":""}/>
+    <text x="${cx}" y="${cy-0.6}" text-anchor="middle" font-size="2.5" font-weight="800" fill="#1B1512">${name}</text>
+    <text x="${cx}" y="${cy+2.6}" text-anchor="middle" font-size="2.3" font-weight="600" fill="#8A7B6E">${area} м²</text>`;
+  }).join('');
+  return `<svg viewBox="-4 -4 ${p.W*s+8} ${p.H*s+8}" class="plan-svg w-full h-full" role="img" aria-label="Планировка">
+    ${inner}
+    <rect x="0" y="0" width="${p.W*s}" height="${p.H*s}" fill="none" stroke="#1B1512" stroke-width="1"/>
+    <text x="${p.W*s/2}" y="-1.6" text-anchor="middle" font-size="2.6" font-weight="700" fill="#77695D">${p.W} м</text>
+    <text x="-1.6" y="${p.H*s/2}" text-anchor="middle" font-size="2.6" font-weight="700" fill="#77695D" transform="rotate(-90 -1.6 ${p.H*s/2})">${p.H} м</text>
+  </svg>`;
+}
+
+/* ================= МОДАЛКА ================= */
+const modal=document.getElementById('modal');
+let curHouse=null;
+function openHouse(i){
+  curHouse=HOUSES[i];
+  document.getElementById('mName').textContent=curHouse.name;
+  document.getElementById('mTech').textContent=curHouse.tech;
+  document.getElementById('mDesc').textContent=curHouse.desc;
+  document.getElementById('mPrice').textContent=curHouse.price;
+  document.getElementById('mSpecs').innerHTML=[
+    ['Площадь',curHouse.area],['Габариты',curHouse.dims],['Этажность',curHouse.floors],
+    ['Спальни',curHouse.beds],['Срок',curHouse.time],['Гарантия','5 лет']
+  ].map(r=>`<div class="flex justify-between gap-3 border-b border-line pb-2"><dt class="text-muted">​${r[0]}</dt><dd>${r[1]}</dd></div>`).join('');
+  const pe=PHOTOS[curHouse.id+'e'], pi=PHOTOS[curHouse.id+'i'];
+  const ie=document.getElementById('imgExt'), ii=document.getElementById('imgInt');
+  ie.src=(pe.url&&pe.url.startsWith('http'))?pe.url:placeholder(pe.n); ie.alt=curHouse.name+' снаружи';
+  ii.src=(pi.url&&pi.url.startsWith('http'))?pi.url:placeholder(pi.n); ii.alt=curHouse.name+' внутри';
+  document.getElementById('planBox').innerHTML=planSVG(curHouse.plan);
+  showTab('ext');
+  modal.classList.remove('hidden'); modal.classList.add('flex');
+  document.body.classList.add('modal-open');
+}
+function closeModal(){ modal.classList.add('hidden'); modal.classList.remove('flex'); document.body.classList.remove('modal-open'); }
+function showTab(t){
+  document.querySelectorAll('.tab-btn').forEach(b=>b.setAttribute('aria-selected', b.dataset.tab===t));
+  document.getElementById('viewExt').classList.toggle('hidden', t!=='ext');
+  document.getElementById('viewInt').classList.toggle('hidden', t!=='int');
+  document.getElementById('viewPlan').classList.toggle('hidden', t!=='plan');
+}
+document.querySelectorAll('.tab-btn').forEach(b=>b.addEventListener('click',()=>showTab(b.dataset.tab)));
+document.getElementById('modalClose').addEventListener('click',closeModal);
+modal.addEventListener('click',e=>{ if(e.target===modal) closeModal(); });
+
+/* ================= ЛАЙТБОКС ================= */
+const lb=document.getElementById('lightbox'), lbImg=document.getElementById('lbImg');
+document.querySelectorAll('[data-lb]').forEach(im=>im.addEventListener('click',()=>{
+  lbImg.src=im.src; lb.classList.remove('hidden'); lb.classList.add('flex'); document.body.classList.add('modal-open');
+}));
+function closeLb(){ lb.classList.add('hidden'); lb.classList.remove('flex'); document.body.classList.remove('modal-open'); }
+lb.addEventListener('click',closeLb);
+document.addEventListener('keydown',e=>{ if(e.key==='Escape'){ closeModal(); closeLb(); } });
+
+/* ================= КАЛЬКУЛЯТОР ================= */
+const fmt=x=>x.toLocaleString('ru-RU')+' ₽';
+const rnd=x=>Math.round(x/1000)*1000;
+function calc(){
+  const area=+document.getElementById('cArea').value;
+  const rate=+document.querySelector('input[name=cTech]:checked').value;
+  const floors=+document.getElementById('cFloors').value;
+  const found=+document.querySelector('input[name=cFound]:checked').value;
+  const fin=+document.querySelector('input[name=cFin]:checked').value;
+  const terr=document.getElementById('cTerrace').checked;
+  const winter=document.getElementById('cWinter').checked;
+  const base=rnd(area*rate*floors);
+  const f=rnd(area*found);
+  const fn=rnd(area*fin);
+  const opt=(terr?rnd(14*rate*0.6):0)+(winter?rnd(base*0.08):0);
+  document.getElementById('areaVal').textContent=area;
+  document.getElementById('outArea').textContent=area;
+  document.getElementById('outBase').textContent=fmt(base);
+  document.getElementById('outFound').textContent=fmt(f);
+  document.getElementById('outFin').textContent=fin?fmt(fn):'включена';
+  document.getElementById('outOpt').textContent=opt?fmt(opt):'—';
+  document.getElementById('outTotal').textContent='≈ '+fmt(base+f+fn+opt);
+}
+['cArea','cFloors','cTerrace','cWinter'].forEach(id=>document.getElementById(id).addEventListener('input',calc));
+document.querySelectorAll('input[name=cTech],input[name=cFound],input[name=cFin]').forEach(el=>el.addEventListener('change',calc));
+calc();
+
+/* ================= ЛИД: ТОСТ / КОПИРОВАНИЕ / VK / PDF ================= */
+function toast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('show');
+  clearTimeout(t._h); t._h=setTimeout(()=>t.classList.remove('show'),2800);
+}
+function getState(){
+  const area=+document.getElementById('cArea').value;
+  const tech=document.querySelector('input[name=cTech]:checked').closest('label').querySelector('span').textContent.trim();
+  const fs=document.getElementById('cFloors');
+  const floors=fs.options[fs.selectedIndex].text;
+  const found=document.querySelector('input[name=cFound]:checked').closest('label').textContent.trim();
+  const fin=document.querySelector('input[name=cFin]:checked').textContent.trim();
+  const opts=[];
+  if(document.getElementById('cTerrace').checked) opts.push('терраса/веранда');
+  if(document.getElementById('cWinter').checked) opts.push('зимний пакет');
+  return {area,tech,floors,found,fin,opts:opts.join(', '),
+    foundPrice:document.getElementById('outFound').textContent,
+    finPrice:document.getElementById('outFin').textContent,
+    optPrice:document.getElementById('outOpt').textContent,
+    total:document.getElementById('outTotal').textContent};
+}
+function buildText(s){
+  return 'Здравствуйте! Я рассчитал(а) смету на сайте С-СТРОЙ (vk.ru/sstroy):\n'+
+  '• Технология: '+s.tech+'\n'+
+  '• Площадь: '+s.area+' м²\n'+
+  '• Этажность: '+s.floors+'\n'+
+  '• Фундамент: '+s.found+'\n'+
+  '• Комплектация: '+s.fin+'\n'+
+  '• Опции: '+(s.opts||'—')+'\n'+
+  '• Итого: '+s.total+'\n'+
+  'Хочу обсудить детали — свяжитесь со мной, пожалуйста.';
+}
+function fallbackCopy(txt,done){
+  const ta=document.createElement('textarea');
+  ta.value=txt; ta.style.position='fixed'; ta.style.opacity='0';
+  document.body.appendChild(ta); ta.select();
+  try{ document.execCommand('copy'); done(); }catch(e){ toast('Не удалось скопировать — выделите текст вручную'); }
+  document.body.removeChild(ta);
+}
+function copyEstimate(silent){
+  const s=getState(), txt=buildText(s);
+  const done=()=>{ if(!silent) toast('Смета скопирована — вставьте её в чат VK'); };
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(txt).then(done).catch(()=>fallbackCopy(txt,done));
+  } else fallbackCopy(txt,done);
+}
+document.getElementById('btnCopy').addEventListener('click',()=>copyEstimate(false));
+document.getElementById('btnVk').addEventListener('click',()=>{
+  copyEstimate(true);
+  window.open('https://vk.me/sstroy','_blank');
+  toast('Смета скопирована — просто вставьте её в чат VK');
+});
+
+/* --- QR (локально, без сервера) --- */
+let qrCanvas=null;
+function ensureQR(){
+  if(qrCanvas) return qrCanvas;
+  if(typeof QRCode==='undefined') return null;
+  const box=document.createElement('div');
+  new QRCode(box,{text:'https://vk.ru/sstroy',width:240,height:240,correctLevel:QRCode.CorrectLevel.M});
+  qrCanvas=box.querySelector('canvas');
+  if(!qrCanvas){ const im=box.querySelector('img'); if(im){ qrCanvas=document.createElement('canvas'); qrCanvas.width=240; qrCanvas.height=240; const cx=qrCanvas.getContext('2d'); cx.drawImage(im,0,0,240,240);} }
+  return qrCanvas;
+}
+/* --- Фирменная смета А4 на canvas (кириллица без проблем) --- */
+function drawEstimate(s,qr){
+  const W=1240,H=1754;
+  const c=document.createElement('canvas'); c.width=W; c.height=H;
+  const x=c.getContext('2d');
+  x.fillStyle='#FAF6F0'; x.fillRect(0,0,W,H);
+  /* шапка */
+  x.fillStyle='#F26018'; x.fillRect(0,0,W,250);
+  x.strokeStyle='#fff'; x.lineWidth=12; x.lineCap='round'; x.lineJoin='round';
+  x.beginPath(); x.moveTo(92,150); x.lineTo(152,92); x.lineTo(212,150); x.stroke();
+  x.beginPath(); x.moveTo(110,142); x.lineTo(110,196); x.moveTo(194,142); x.lineTo(194,196); x.stroke();
+  x.beginPath(); x.moveTo(140,196); x.lineTo(140,164); x.lineTo(164,164); x.lineTo(164,196); x.stroke();
+  x.fillStyle='#fff'; x.font='800 62px Unbounded, Manrope, sans-serif'; x.fillText('С-СТРОЙ',248,150);
+  x.font='700 28px Manrope, sans-serif'; x.fillStyle='rgba(255,255,255,.92)';
+  x.fillText('Вологодская строительная компания · vk.ru/sstroy',250,200);
+  /* заголовок + дата */
+  x.fillStyle='#1B1512'; x.font='800 46px Unbounded, Manrope, sans-serif'; x.fillText('ПРЕДВАРИТЕЛЬНАЯ СМЕТА',80,362);
+  x.fillStyle='#77695D'; x.font='600 30px Manrope, sans-serif'; x.textAlign='right';
+  x.fillText(new Date().toLocaleDateString('ru-RU',{day:'numeric',month:'long',year:'numeric'}),1160,360); x.textAlign='left';
+  /* строки параметров */
+  const rows=[
+    ['Технология',s.tech],
+    ['Площадь',s.area+' м²'],
+    ['Этажность',s.floors],
+    ['Фундамент',s.found+' · '+s.foundPrice],
+    ['Комплектация',s.fin+' · '+s.finPrice],
+    ['Опции',s.opts?s.opts+' · '+s.optPrice:'—']
+  ];
+  let y=452;
+  rows.forEach(r=>{
+    x.fillStyle='#77695D'; x.font='600 32px Manrope, sans-serif'; x.fillText(r[0],80,y);
+    x.fillStyle='#1B1512'; x.font='800 32px Manrope, sans-serif'; x.textAlign='right'; x.fillText(r[1],1160,y); x.textAlign='left';
+    x.strokeStyle='#E9DFD4'; x.lineWidth=2; x.setLineDash([2,8]);
+    x.beginPath(); x.moveTo(80,y+26); x.lineTo(1160,y+26); x.stroke(); x.setLineDash([]);
+    y+=88;
+  });
+  /* итого */
+  y+=6;
+  x.fillStyle='#1B1512'; x.font='800 36px Manrope, sans-serif'; x.fillText('Итого, предварительно:',80,y);
+  x.fillStyle='#C94A0C'; x.font='800 82px Unbounded, Manrope, sans-serif'; x.fillText(s.total,80,y+100);
+  /* нижний блок */
+  x.strokeStyle='#1B1512'; x.lineWidth=3; x.beginPath(); x.moveTo(80,1252); x.lineTo(1160,1252); x.stroke();
+  x.fillStyle='#1B1512'; x.font='800 42px Manrope, sans-serif'; x.fillText('+7 921 532-30-03',80,1336);
+  x.fillStyle='#77695D'; x.font='600 30px Manrope, sans-serif';
+  x.fillText('г. Вологда, ул. Ветошкина, 17 · ежедневно 9:00–19:00',80,1388);
+  x.fillText('Точная смета — бесплатно после встречи на участке.',80,1436);
+  x.fillText('Гарантия 5 лет фиксируется в договоре.',80,1484);
+  /* QR */
+  if(qr){
+    x.fillStyle='#fff'; x.fillRect(898,1288,264,264);
+    x.strokeStyle='#1B1512'; x.lineWidth=3; x.strokeRect(898,1288,264,264);
+    x.drawImage(qr,910,1300,240,240);
+    x.fillStyle='#1B1512'; x.font='700 26px Manrope, sans-serif'; x.textAlign='center';
+    x.fillText('Наведите камеру — чат в VK',1030,1596); x.textAlign='left';
+  }
+  /* подвал */
+  x.fillStyle='#77695D'; x.font='500 24px Manrope, sans-serif';
+  x.fillText('Не является публичной офертой. Расчёт по ценам С-СТРОЙ, август 2026.',80,1690);
+  return c.toDataURL('image/png');
+}
+document.getElementById('btnPdf').addEventListener('click',async()=>{
+  if(!window.jspdf){ toast('Библиотека PDF не загрузилась — проверьте интернет'); return; }
+  toast('Готовим PDF…');
+  try{ await document.fonts.ready; }catch(e){}
+  const s=getState();
+  const img=drawEstimate(s,ensureQR());
+  const {jsPDF}=window.jspdf;
+  const pdf=new jsPDF({orientation:'portrait',unit:'mm',format:'a4'});
+  pdf.addImage(img,'PNG',0,0,210,297);
+  pdf.save('S-STROY_smeta_'+s.area+'m2.pdf');
+  toast('PDF со сметой и QR сохранён');
+});
+
+/* ================= ПРОЧЕЕ ================= */
+applyPhotos();
+document.getElementById('burger').addEventListener('click',()=>document.getElementById('mnav').classList.toggle('hidden'));
+document.querySelectorAll('#mnav a').forEach(a=>a.addEventListener('click',()=>document.getElementById('mnav').classList.add('hidden')));
+const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){e.target.classList.add('on'); io.unobserve(e.target);} }),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
